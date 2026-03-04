@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg: #0b0b0f;
+  --cream: #f7f1ea;
+  --milk: #efe6dc;
+  --ember: #d32f2f;
+  --cocoa: #6a4b3a;
+}
+
+html, body { height: 100%; }
+body {
+  color: var(--cream);
+  background: radial-gradient(1100px 700px at 20% 15%, rgba(211,47,47,0.22), transparent 55%),
+              radial-gradient(900px 600px at 78% 30%, rgba(239,230,220,0.12), transparent 60%),
+              radial-gradient(900px 700px at 55% 90%, rgba(106,75,58,0.18), transparent 55%),
+              var(--bg);
+}
+
+/* crisp edges + matte surfaces (no glass blur) */
+.matte {
+  background: linear-gradient(180deg, rgba(247,241,234,0.06), rgba(247,241,234,0.03));
+  border: 1px solid rgba(247,241,234,0.10);
+}
+.matte-strong {
+  background: linear-gradient(180deg, rgba(247,241,234,0.10), rgba(239,230,220,0.05));
+  border: 1px solid rgba(247,241,234,0.14);
+}
+.edge {
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.06) inset;
+}
+.noise {
+  position: relative;
+}
+.noise:before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+  border-radius: inherit;
+}
